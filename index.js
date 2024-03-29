@@ -58,8 +58,8 @@ app.post('/hashPdf', async (req, res) => {
         setTimeout(() => {
             const credentials = PDFServicesSdk.Credentials
                 .servicePrincipalCredentialsBuilder()
-                .withClientId("7f5f0853e27a4a108d09b6b510285570")
-                .withClientSecret("p8e-yyyGJnzqaKxfwvFYPjQLlzg5eR4qu3V-")
+                .withClientId("")
+                .withClientSecret("")
                 .build();
 
             const executionContext = PDFServicesSdk.ExecutionContext.create(credentials);
@@ -76,7 +76,7 @@ app.post('/hashPdf', async (req, res) => {
             protectPDFOperation.setInput(input);
             protectPDFOperation.execute(executionContext)
                 .then(result => {
-                    const hashPdf = __dirname + '/hashPdf/' + 'Maaş Zarfı - ' + newPdfName
+                    const hashPdf = __dirname + '/hshPdf/' + 'Maaş Zarfı - ' + newPdfName
                     result.saveAsFile(hashPdf)
                     res.status(200).json('PDF Oluşturuldu')
                     var mailOptions = {
